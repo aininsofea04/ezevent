@@ -3,38 +3,40 @@ import AdminPage from './pages/AdminPage'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
 import SignUpPage from './pages/SignUpPage'
-import { useEffect, useState } from 'react'
-import { auth } from './firebase'
-
-
+import { useAuth } from './components/AuthContext'
 
 function App() {
+  const { user, loading } = useAuth()
 
-  const [user, setUser] = useState();
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      setUser(user);
-    });
-  });
+  if (loading) {
+    return <div>Loading...</div>
+  }
 
- return (
-  <Router>
-    <div className="app">
-      <div className="auth-wrapper">
-        <div className="auth-inner">
-          <Routes>
-            <Route
-            path='/'
-            element={user ? <Navigate to="/admin" /> : <LoginPage />}
-            />
-            <Route path='/login' element={<LoginPage />} />
-            <Route path='/signup' element={<SignUpPage />} />
-            <Route path='/admin' element={<AdminPage />} />
-          </Routes>
+  return (
+    <Router>
+      <div className="app">
+        <div className="auth-wrapper">
+          <div className="auth-inner">
+            <Routes>
+              <Route
+                path="/"
+                element={user ? <Navigate to="/admin" /> : <LoginPage />}
+              />
+              <Route
+                path="/login"
+                element={user ? <Navigate to="/admin" /> : <LoginPage />}
+              />
+              <Route path="/signup" element={<SignUpPage />} />
+              <Route
+                path="/admin"
+                element={user ? <AdminPage /> : <Navigate to="/login" />}
+              />
+            </Routes>
+          </div>
         </div>
       </div>
-    </div>
-  </Router>
- )
+    </Router>
+  )
 }
+
 export default App
