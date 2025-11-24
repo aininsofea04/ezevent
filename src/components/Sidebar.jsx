@@ -1,7 +1,11 @@
 import React from 'react'
 import { signOut } from 'firebase/auth'
 import { auth } from '../firebase'
+import {doc, getDoc} from "firebase/firestore"
+import { useNavigate } from "react-router-dom";
 import '../css/Sidebar.css'
+
+
 
 const menuItems = {
   participant: [
@@ -22,11 +26,13 @@ const menuItems = {
 
 export default function Sidebar({ role }) {
 
+  // const [userDetails, ]
+
   async function handleLogout() {
     try{
       await signOut(auth);
-      window.location.href = "/login";
       console.log("User logged out successfully!")
+      navigate("/login");
     }catch (error) {
       console.error("Error Logging out:", error.message)
     }
