@@ -11,10 +11,10 @@ function AdminLayout() {
             <div className="admin-content">
             <Routes>
                 <Route path="" element={<AdminPage />} />
+                <Route path="management-report" element={<AdminPage />} />
                 <Route path="validate-organizers" element={<AdminPage />} />
                 <Route path="validate-events" element={<AdminPage />} />
-                <Route path="validate-participants" element={<AdminPage />} />
-                <Route path="management-report" element={<AdminPage />} />
+                <Route path="validate-participants" element={<AdminPage />} />      
             </Routes>
 
             </div>
