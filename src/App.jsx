@@ -9,7 +9,6 @@ import ProtectedRoute from './components/ProtectedRoute'
 import ParticipantPage from './pages/ParticipantPage'
 import OrganizerPage from './pages/OrganizerPage'
 import AdminLayout from './layouts/AdminLayout'
-import CreateEvent from './pages/create_event.jsx'
 
 function App() {
   const { user, role, loading } = useAuth()
