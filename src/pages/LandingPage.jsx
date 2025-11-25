@@ -29,8 +29,6 @@ export default function LandingPage() {
                         <span>|</span>
                         <a href="#contact">Contact Us</a>
                         <span>|</span>
-                        <a href="#">Language</a>
-                        <span>|</span>
                         <a href="/login">Log In/Sign Up</a>
                     </div>
                 </div>
@@ -60,7 +58,7 @@ export default function LandingPage() {
                         <div className="lp-card">
                             <img src="../src/assets/icons/test.jpg" alt="Organize Events" />
                             <h3>Organize Like a Pro</h3>
-                            <p>Create and manage events with  analytics, and attendee tracking.</p>
+                            <p>Create and manage events with analytics, and attendee tracking.</p>
                         </div>
                     </div>
                 </div>
