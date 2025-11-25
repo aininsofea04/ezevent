@@ -8,6 +8,7 @@ import { useAuth } from './components/AuthContext'
 import ProtectedRoute from './components/ProtectedRoute'
 import ParticipantPage from './pages/ParticipantPage'
 import OrganizerPage from './pages/OrganizerPage'
+import CreateEvent from './pages/create_event.jsx'
 
 function App() {
   const { user, role, loading } = useAuth()
@@ -20,60 +21,10 @@ function App() {
 
   if (loading) {
     return <div>Loading...</div>
-  }
+  } 
 
   return (
-    <Router>
-      <div className="app">
-        <div className="auth-wrapper">
-          <div className="auth-inner">
-            <Routes>
-              <Route
-                path="/"
-                element={user ? <Navigate to={getLandingPath()} /> : <LoginPage />}
-              />
-              
-              <Route
-                path="/login"
-                element={user ? <Navigate to={getLandingPath()} /> : <LoginPage />}
-              />
-
-              <Route 
-              path="/signup" 
-              element={<SignUpPage />} 
-              />
-
-              <Route
-                path="/admin"
-                element={
-                  <ProtectedRoute allowedRoles={['admin']}>
-                    <AdminPage />
-                  </ProtectedRoute>
-                }
-              />
-
-              <Route
-                path="/participant"
-                element={
-                  <ProtectedRoute allowedRoles={['participant']}>
-                    <ParticipantPage />
-                  </ProtectedRoute>
-                }
-              />
-
-              <Route
-                path="/organizer"
-                element={
-                  <ProtectedRoute allowedRoles={['organizer']}>
-                    <OrganizerPage />
-                  </ProtectedRoute>
-                }
-              />
-            </Routes>
-          </div>
-        </div>
-      </div>
-    </Router>
+    <CreateEvent />
   )
 }
 
