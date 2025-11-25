@@ -8,6 +8,7 @@ import { useAuth } from './components/AuthContext'
 import ProtectedRoute from './components/ProtectedRoute'
 import ParticipantPage from './pages/ParticipantPage'
 import OrganizerPage from './pages/OrganizerPage'
+import ValidateOrganizerPage from './pages/ValidateOrganizerPage'
 
 function App() {
   const { user, role, loading } = useAuth()
@@ -30,7 +31,7 @@ function App() {
             <Routes>
               <Route
                 path="/"
-                element={user ? <Navigate to={getLandingPath()} /> : <LoginPage />}
+                element={user ? <Navigate to={getLandingPath()} /> : <LandingPage />}
               />
               
               <Route
@@ -48,6 +49,15 @@ function App() {
                 element={
                   <ProtectedRoute allowedRoles={['admin']}>
                     <AdminPage />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="/admin/validate-organizers"
+                element={
+                  <ProtectedRoute allowedRoles={['admin']}>
+                    <ValidateOrganizerPage />
                   </ProtectedRoute>
                 }
               />
