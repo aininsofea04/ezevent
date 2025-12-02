@@ -10,13 +10,19 @@ html, body, a, h1, h2, h3, p, div, span {
   font-family: 'Inria Sans', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
+/* Root container */
+.lp-root {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
 /* Layout helpers */
 .lp-container{ max-width: 1100px; margin: 0 auto; padding: 0 16px; }
 .lp-flex { display:flex; align-items:center; justify-content:space-between; }
-
-header.lp-header{ background: var(--ezevent-blue); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.lp-header img{ height:48px; }
-.lp-nav a{ margin:0 8px; text-decoration:none; color:#1f2937; }
 
 .lp-hero{ background: linear-gradient(90deg,var(--ezevent-blue),#bfe6ff); padding:64px 0; text-align:center; }
 .lp-hero h1{ font-size:2.25rem; margin-bottom:12px; color:#374151}
@@ -29,10 +35,156 @@ header.lp-header{ background: var(--ezevent-blue); box-shadow: 0 2px 8px rgba(0,
 .lp-features { color: #374151;} 
 .lp-card img{ width:80px; height:80px; border-radius:50%; object-fit:cover; margin-bottom:12px; }
 
-.lp-about{ padding:64px 0; background: var(--ezevent-blue); text-align:center; color: #374151;}
+.lp-about{ 
+  padding:64px 0; 
+  background: var(--ezevent-blue); 
+  text-align:center; 
+  color: #374151;
+}
 
-.lp-contact{ padding:64px 0; background: var(--ezevent-white); text-align:center; color: #374151;}
-.lp-contact a{ margin:0 10px; color:#2563eb; text-decoration:none; font-size:1.25rem; }
+.lp-about h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
 
-footer.lp-footer{ background:#111827; color:white; padding:18px 0; text-align:center; }
+.lp-about p {
+  font-size: 1.125rem;
+  color: #4b5563;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.lp-contact{ 
+  padding:64px 0; 
+  background: var(--ezevent-white); 
+  text-align:center; 
+  color: #374151;
+}
+
+.lp-contact h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+.lp-contact p {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  color: #4b5563;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.lp-contact-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.lp-contact-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 2rem;
+  background: #f3f4f6;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #374151;
+  transition: all 0.3s ease;
+  min-width: 140px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.lp-contact-link:hover {
+  background: #e5e7eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.lp-contact-link img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  padding: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+/* Icon-specific background colors with white icons */
+.lp-contact-link:first-child img {
+  background: #60a5fa;
+  filter: brightness(0) invert(1);
+}
+
+.lp-contact-link:nth-child(2) img {
+  background: #f97316;
+  filter: brightness(0) invert(1);
+}
+
+.lp-contact-link:nth-child(3) img {
+  background: #3b82f6;
+  filter: brightness(0) invert(1);
+}
+
+.lp-contact-link span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+footer.lp-footer{ 
+  background:#111827; 
+  color:white; 
+  padding:24px 0; 
+  text-align:center; 
+  margin-top: 0;
+}
+
+footer.lp-footer p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #d1d5db;
+}
+
+@media (max-width: 768px) {
+  .lp-contact-links {
+    gap: 1rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .lp-contact-link {
+    min-width: auto;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .lp-contact-link img {
+    width: 32px;
+    height: 32px;
+    padding: 10px;
+  }
+  
+  .lp-about h2,
+  .lp-contact h2 {
+    font-size: 1.75rem;
+  }
+  
+  .lp-about p,
+  .lp-contact p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}
 

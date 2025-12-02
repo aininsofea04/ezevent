@@ -6,6 +6,7 @@ import SignUpPage from './pages/SignUpPage'
 import LandingPage from './pages/LandingPage'
 import { useAuth } from './components/AuthContext'
 import ProtectedRoute from './components/ProtectedRoute'
+import ParticipantPage from './pages/ParticipantPage'
 import OrganizerPage from './pages/OrganizerPage'
 import AdminLayout from './layouts/AdminLayout'
 import ParticipantsLayout from './layouts/ParticipantLayout'
@@ -25,55 +26,65 @@ function App() {
 
   return (
     <Router>
-      <div className="app">
-        <div className="auth-wrapper">
-          <div className="auth-inner">
-            <Routes>
-              <Route
-                path="/"
-                element={user ? <Navigate to={getLandingPath()} /> : <LandingPage />}
-              />
-              
-              <Route
-                path="/login"
-                element={user ? <Navigate to={getLandingPath()} /> : <LoginPage />}
-              />
+      <Routes>
+        <Route
+          path="/"
+          element={<LandingPage />}
+        />
+        
+        <Route
+          path="/login"
+          element={
+            user ? (
+              <Navigate to={getLandingPath()} />
+            ) : (
+              <div className="app auth-wrapper">
+                <div className="auth-inner">
+                  <LoginPage />
+                </div>
+              </div>
+            )
+          }
+        />
 
-              <Route 
-              path="/signup" 
-              element={<SignUpPage />} 
-              />
+        <Route 
+          path="/signup" 
+          element={
+            <div className="app auth-wrapper">
+              <div className="auth-inner">
+                <SignUpPage />
+              </div>
+            </div>
+          } 
+        />
 
-              <Route
-                path="/admin/*"
-                element={
-                  <ProtectedRoute allowedRoles={['admin']}>
-                    <AdminLayout />
-                  </ProtectedRoute>
-                }
-              />
+        <Route
+          path="/admin/*"
+          element={
+            <ProtectedRoute allowedRoles={['admin']}>
+              <AdminLayout />
+            </ProtectedRoute>
+          }
+        />
 
-              <Route
-                path="/participant"
-                element={
-                  <ProtectedRoute allowedRoles={['participant']}>
-                    <ParticipantPage />
-                  </ProtectedRoute>
-                }
-              />
+        <Route
+          path="/participant/*"
+          element={
+            <ProtectedRoute allowedRoles={['participant']}>
+              <ParticipantsLayout />
+            </ProtectedRoute>
+          }
+        />
 
-              <Route
-                path="/organizer"
-                element={
-                  <ProtectedRoute allowedRoles={['organizer']}>
-                    <OrganizerPage />
-                  </ProtectedRoute>
-                }
-              />
-            </Routes>
-          </div>
-        </div>
-      </div>
+        <Route
+          path="/organizer"
+          element={
+            <ProtectedRoute allowedRoles={['organizer']}>
+              <OrganizerPage />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
     </Router>
   )
 }

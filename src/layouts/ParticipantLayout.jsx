@@ -10,6 +10,7 @@ function ParticipantsLayout() {
 
       <div className="admin-content">
         <Routes>
+          <Route path="" element={<ViewEventsPage />} />
           <Route path="home" element={<ViewEventsPage />} />
           <Route path="events" element={<ViewEventsPage />} />
           <Route

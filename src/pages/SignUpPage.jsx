@@ -15,6 +15,7 @@ function SignUpPage() {
     const [companyName, setCompanyName] = useState("");
     const [position, setPosition] = useState("");
     const [companyAddress, setCompanyAddress] = useState("");
+    const [matricNumber, setMatricNumber] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
@@ -37,11 +38,15 @@ function SignUpPage() {
                     gender,
                 };
 
-                if (role === "participant") userData.institution = institution;
+                if (role === "participant") {
+                    userData.institution = institution;
+                    userData.matricNumber = matricNumber;
+                }
                 if (role === "organizer") {
                     userData.companyName = companyName;
                     userData.position = position;
                     userData.companyAddress = companyAddress;
+                    userData.verified = false;
                 }
 
                 await setDoc(doc(db, "users", user.uid), userData);
@@ -154,6 +159,7 @@ function SignUpPage() {
 
                     {/* Conditional Fields */}
                     {role === "participant" && (
+                        <>
                         <div className="form-group">
                             <label>Institution</label>
                             <select
@@ -167,6 +173,18 @@ function SignUpPage() {
                                 <option value="UM">UM</option>
                             </select>
                         </div>
+
+                        <div className="form-group">
+                        <label>Matric Number</label>
+                        <input
+                            type="test"
+                            placeholder="Your Matric Number"
+                            value={matricNumber}
+                            onChange={(e) => setMatricNumber(e.target.value)}
+                            required
+                        />
+                    </div>
+                        </>
                     )}
 
                     {role === "organizer" && (

@@ -1,4 +1,9 @@
 import React, { useEffect } from 'react';
+import Topbar from '../components/Topbar';
+import testImage from '../assets/icons/test.jpg';
+import emailIcon from '../assets/icons/email.svg';
+import instagramIcon from '../assets/icons/instagram.svg';
+import facebookIcon from '../assets/icons/facebook.svg';
 import '../css/LandingPage.css'
 
 export default function LandingPage() {
@@ -15,24 +20,7 @@ export default function LandingPage() {
 
     return (
         <div className="lp-root">
-            <header className="lp-header">
-                <div className="lp-container lp-flex lp-nav">
-                    <div>
-                        <img src="../src/assets/icons/ezevent_logo.png" alt="EZEvent Logo" />
-                    </div>
-                    <div>
-                        <a href="/">Home</a>
-                        <span>|</span>
-                        <a href="#features">Event</a>
-                        <span>|</span>
-                        <a href="#about">About Us</a>
-                        <span>|</span>
-                        <a href="#contact">Contact Us</a>
-                        <span>|</span>
-                        <a href="/login">Log In/Sign Up</a>
-                    </div>
-                </div>
-            </header>
+            <Topbar />
 
             <section className="lp-hero">
                 <div className="lp-container">
@@ -46,17 +34,17 @@ export default function LandingPage() {
                     <h2>Why Choose EZEvent?</h2>
                     <div className="grid">
                         <div className="lp-card">
-                            <img src="../src/assets/icons/test.jpg" alt="Discover Events" />
+                            <img src={testImage} alt="Discover Events" />
                             <h3>Discover Events</h3>
                             <p>Browse events by category, date, or university. Never miss out on fun or important gatherings.</p>
                         </div>
                         <div className="lp-card">
-                            <img src="../src/assets/icons/test.jpg" alt="Easy Registration" />
+                            <img src={testImage} alt="Easy Registration" />
                             <h3>Easy Registration</h3>
                             <p>One-tap sign-up with QR code check-ins.</p>
                         </div>
                         <div className="lp-card">
-                            <img src="../src/assets/icons/test.jpg" alt="Organize Events" />
+                            <img src={testImage} alt="Organize Events" />
                             <h3>Organize Like a Pro</h3>
                             <p>Create and manage events with analytics, and attendee tracking.</p>
                         </div>
@@ -75,15 +63,18 @@ export default function LandingPage() {
                 <div className="lp-container">
                     <h2>Contact Us</h2>
                     <p>Have questions or feedback? We'd love to hear from you! Reach out to our support team.</p>
-                    <div>
-                        <a href="mailto:support@ezevent.com" aria-label="Email support" title="Email support">
-                            <img src="../src/assets/icons/email.svg" alt="Email" style={{ width: 24, height: 24 }} />
+                    <div className="lp-contact-links">
+                        <a href="mailto:support@ezevent.com" className="lp-contact-link" aria-label="Email support" title="Email support">
+                            <img src={emailIcon} alt="Email" />
+                            <span>Email</span>
                         </a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram support" aria-label="Instagram">
-                            <img src="../src/assets/icons/instagram.svg" alt="Instagram" style={{ width: 24, height: 24 }} />
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="lp-contact-link" title="Instagram support" aria-label="Instagram">
+                            <img src={instagramIcon} alt="Instagram" />
+                            <span>Instagram</span>
                         </a>
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook support" aria-label="Facebook">
-                            <img src="../src/assets/icons/facebook.svg" alt="Facebook" style={{ width: 24, height: 24 }} />
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="lp-contact-link" title="Facebook support" aria-label="Facebook">
+                            <img src={facebookIcon} alt="Facebook" />
+                            <span>Facebook</span>
                         </a>
                     </div>
                 </div>
