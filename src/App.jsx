@@ -6,10 +6,9 @@ import SignUpPage from './pages/SignUpPage'
 import LandingPage from './pages/LandingPage'
 import { useAuth } from './components/AuthContext'
 import ProtectedRoute from './components/ProtectedRoute'
-import ParticipantPage from './pages/ParticipantPage'
-import OrganizerPage from './pages/OrganizerPage'
 import AdminLayout from './layouts/AdminLayout'
 import ParticipantsLayout from './layouts/ParticipantLayout'
+import OrganizerLayout from './layouts/OrganizerLayout'
 
 function App() {
   const { user, role, loading } = useAuth()
@@ -17,12 +16,13 @@ function App() {
   const getLandingPath = () => {
     if (role === 'participant') return '/participant'
     if (role === 'organizer') return '/organizer'
-    return '/admin'
+    if (role === 'admin') return '/admin'
+    return '/'
   }
 
-  // if (loading) {
-  //   return <div>Loading...</div>
-  // }
+  if (loading) {
+    return <div>Loading...</div>
+  }
 
   return (
     <Router>
@@ -35,8 +35,8 @@ function App() {
         <Route
           path="/login"
           element={
-            user ? (
-              <Navigate to={getLandingPath()} />
+            user && role ? (
+              <Navigate to={getLandingPath()} replace />
             ) : (
               <div className="app auth-wrapper">
                 <div className="auth-inner">
@@ -77,10 +77,10 @@ function App() {
         />
 
         <Route
-          path="/organizer"
+          path="/organizer/*"
           element={
             <ProtectedRoute allowedRoles={['organizer']}>
-              <OrganizerPage />
+              <OrganizerLayout />
             </ProtectedRoute>
           }
         />

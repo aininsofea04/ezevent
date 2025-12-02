@@ -21,8 +21,9 @@ const menuItems = {
 
   ],
   organizer: [
-    { label: "Create Event", path: "/organizer/create" },
     { label: "My Events", path: "/organizer/events" },
+    { label: "Create Event", path: "/organizer/create" },
+    
   ]
 };
 
@@ -60,7 +61,7 @@ export default function Sidebar({ role }) {
     try{
       await signOut(auth);
       console.log("User logged out successfully!")
-      navigate("/login");
+      navigate("/");
     }catch (error) {
       console.error("Error Logging out:", error.message)
     }
@@ -77,7 +78,7 @@ export default function Sidebar({ role }) {
     if (role === 'participant' && location.pathname === '/participant' && itemPath === '/participant/home') {
       return 'active';
     }
-    if (role === 'organizer' && location.pathname === '/organizer' && itemPath === '/organizer/create') {
+    if (role === 'organizer' && location.pathname === '/organizer' && itemPath === '/organizer/events') {
       return 'active';
     }
     return isActive ? 'active' : '';

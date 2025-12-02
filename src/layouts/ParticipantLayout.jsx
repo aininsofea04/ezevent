@@ -5,13 +5,12 @@ import "../css/ParticipantPage.css";
 
 function ParticipantsLayout() {
   return (
-    <div className="admin-container">
+    <div className="participant-container">
       <Sidebar role="participant" />
 
-      <div className="admin-content">
+      <div className="participant-content">
         <Routes>
           <Route path="" element={<ViewEventsPage />} />
-          <Route path="home" element={<ViewEventsPage />} />
           <Route path="events" element={<ViewEventsPage />} />
           <Route
             path="registered"
