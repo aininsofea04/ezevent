@@ -150,7 +150,7 @@ export default function ValidateEventDetails() {
                 <p><strong>Price:</strong> {eventData.Price}</p>
                 <p><strong>Current Status:</strong>
                     <span style={{ fontWeight: 'bold', color: eventData.status === 'Accepted' ? 'green' : eventData.status === 'Declined' ? 'red' : 'orange' }}>
-                        {eventData.status || 'pending'}
+                        {eventData.status || 'Pending'}
                     </span>
                 </p>
             </div>
@@ -174,7 +174,7 @@ export default function ValidateEventDetails() {
                             <p><strong>Validation Timestamp:</strong> {formatTimestamp(userData.organizer.validationTimestamp)}</p>
                             <p><strong>Organizer Status:</strong>
                                 <span style={{ fontWeight: 'bold', color: userData.organizer.status === 'Accepted' ? 'green' : 'orange' }}>
-                                    {userData.organizer.status || 'pending'}
+                                    {userData.organizer.status || 'Pending'}
                                 </span>
                             </p>
                         </div>
