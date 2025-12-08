@@ -16,7 +16,7 @@ const menuItems = {
     { label: "Management Report", path: "/admin/management-report" },
     { label: "Validate Organizers", path: "/admin/validate-organizers" },
     { label: "Validate Events", path: "/admin/validate-events" },
-    { label: "Validate Participants", path: "/admin/validate-participants" },
+    { label: "View Participants", path: "/admin/view-participants" },
     { label: "Manage Univerisities", path: "/admin/manage-universities" }
 
   ],

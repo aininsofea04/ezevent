@@ -11,13 +11,13 @@ function SignUpPage() {
     const [name, setName] = useState("");
     const [age, setAge] = useState("");
     const [gender, setGender] = useState("");
+     const [phoneNumber, setPhoneNumber] = useState("");
     const [institution, setInstitution] = useState("");
     const [companyName, setCompanyName] = useState("");
     const [position, setPosition] = useState("");
     const [companyAddress, setCompanyAddress] = useState("");
     const [matricNumber, setMatricNumber] = useState("");
-    const [error, setError] = useState("");
-    const [phoneNumber, setPhoneNumber] = useState("");
+        const [error, setError] = useState("");
     const navigate = useNavigate();
 
     const handleRegister = async (e) => {
@@ -37,6 +37,7 @@ function SignUpPage() {
                     role,
                     age,
                     gender,
+                    phoneNumber
                 };
 
                 if (role === "participant") {
@@ -50,17 +51,19 @@ function SignUpPage() {
                         companyName: companyName,
                         position: position,
                         companyAddress: companyAddress,
-                        verified: false
+                        verified: "Pending"
                     };
                 }
 
                 await setDoc(doc(db, "users", user.uid), userData);
 
                 // Navigate based on role
-                if (role === "participant") navigate("/participant/*");
-                else if (role === "organizer") navigate("/organizer/*");
-                else if (role === "admin") navigate("/admin/*");
+                if (role === "participant") navigate("/participant/events");
+                else if (role === "organizer") navigate("/organizer/events");
+                else if (role === "admin") navigate("/admin/");
                 else setError("User role not found. Please contact support.");
+
+                window.location.reload();
             }
         } catch (error) {
             setError(error.message);
@@ -176,6 +179,7 @@ function SignUpPage() {
                     </div>
 
                     {/* Conditional Fields */}
+                    {/* Participant Fields */}
                     {role === "participant" && (
                         <>
                         <div className="form-group">
@@ -204,7 +208,8 @@ function SignUpPage() {
                     </div>
                         </>
                     )}
-
+                    
+                    {/* Organizer Fields */}
                     {role === "organizer" && (
                         <>
                             <div className="form-group">

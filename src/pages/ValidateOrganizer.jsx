@@ -3,7 +3,6 @@ import { collection, doc, getDocs, query, where, updateDoc, serverTimestamp } fr
 import { db } from '../firebase';
 import emailjs from '@emailjs/browser';
 import "../css/ValidateOrganizer.css";
-import { SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY } from "../emailjs-config";
 
 export default function ValidateOrganizer() {
   const [organizers, setOrganizers] = useState([]);
@@ -11,7 +10,9 @@ export default function ValidateOrganizer() {
   const [error, setError] = useState(null);
   const [selectedOrganizer, setSelectedOrganizer] = useState(null);
 
-
+  const SERVICE_ID = "service_ezevent"; 
+  const TEMPLATE_ID = "template_2ofdmnb";
+  const PUBLIC_KEY = "tbsCwOVG73gOBa1XX";
 
   useEffect(() => {
     const fetchOrganizers = async () => {
@@ -127,6 +128,7 @@ export default function ValidateOrganizer() {
                 <th>ID</th>
                 <th>Email</th>
                 <th>Name</th>
+                <th>Phone Number</th>
                 <th>Company Name</th>
                 <th>Company Address</th>
                 <th>Position</th>
@@ -147,6 +149,7 @@ export default function ValidateOrganizer() {
                     <td>{organizer.id}</td>
                     <td>{organizer.email || 'N/A'}</td>
                     <td>{organizer.name || 'N/A'}</td>
+                    <td>{organizer.phoneNumber || 'N/A'}</td>
                     <td>{organizer.organizer.companyName || 'N/A'}</td>
                     <td>{organizer.organizer.companyAddress || 'N/A'}</td>
                     <td>{organizer.organizer.position || 'N/A'}</td>
