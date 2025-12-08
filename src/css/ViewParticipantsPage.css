@@ -1,17 +1,17 @@
-.manage-organizer {
+.view-participants {
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.manage-organizer h1 {
+.view-participants h1 {
   color: #333;
   margin-bottom: 2rem;
   font-size: 2rem;
   font-weight: 600;
 }
 
-.organizer-list-section{
+.participant-list-section{
   background-color: #ffffff;
   border-radius: 8px;
   padding: 1.5rem;
@@ -19,24 +19,24 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.organizer-list-section h2{
+.participant-list-section h2{
   color: #333;
   margin-bottom: 1.5rem;
   font-size: 1.5rem;
   font-weight: 600;
 }
 
-.organizer-table {
+.participants-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 1rem;
 }
 
-.organizer-table thead {
+.participants-table thead {
   background-color: #f5f5f5;
 }
 
-.organizer-table th {
+.participants-table th {
   padding: 1rem;
   text-align: left;
   font-weight: 600;
@@ -44,32 +44,14 @@
   border-bottom: 2px solid #ddd;
 }
 
-.organizer-table td {
+.participants-table td {
   padding: 1rem;
   border-bottom: 1px solid #e5e5e5;
   color: #555;
 }
 
-.organizer-table tbody tr:hover {
+.participants-table tbody tr:hover {
   background-color: #f9f9f9;
 }
 
 
-
-.action-btn {
-  display: inline-flex;    
-  align-items: center;         
-  justify-content: center;   
-  height: 36px;               
-  padding: 0 12px;             
-  line-height: 1;               
-  white-space: nowrap;         
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: 0.9rem;
-  margin-right: 0.5rem;
-  transition: background-color 0.2s;
-  box-sizing: border-box;
-}

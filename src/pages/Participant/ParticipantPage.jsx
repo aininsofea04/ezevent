@@ -1,5 +1,5 @@
 import React from 'react'
-import Sidebar from '../components/Sidebar'
+import Sidebar from '../../components/Sidebar'
 import '../css/AdminPage.css'
 
 export default function ParticipantPage() {
