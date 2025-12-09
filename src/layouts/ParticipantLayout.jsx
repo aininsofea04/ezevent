@@ -2,7 +2,7 @@ import Sidebar from "../components/Sidebar";
 import { Routes, Route } from "react-router-dom";
 import ViewEventsPage from "../pages/ViewEventPage";
 import ParticipantPage from "../pages/Participant/ParticipantPage";
-// import "../css/ParticipantPage.css";
+import "../css/ParticipantPage.css";
 
 function ParticipantsLayout() {
   return (

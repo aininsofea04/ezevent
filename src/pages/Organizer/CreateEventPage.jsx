@@ -153,7 +153,6 @@ export default function CreateEvent() {
     return (
         <div className="ce-root">
             <header className="ce-header">
-                <button type="button" className="ce-back" aria-label="Back">←</button>
                 <h1>Create A Event</h1>
             </header>
 

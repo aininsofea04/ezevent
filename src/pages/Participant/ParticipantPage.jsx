@@ -22,14 +22,14 @@ export default function ParticipantPage() {
         body: JSON.stringify({
           eventId: event.id,
           userId: user.uid,     // Now safe because we checked 'user' above
-          userEmail: user.email 
+          userEmail: user.email
         }),
       });
 
       const data = await response.json();
 
       if (data.url) {
-        window.location.href = data.url; 
+        window.location.href = data.url;
       } else {
         console.error("No URL returned from backend");
         alert("Payment system is currently down.");
@@ -42,13 +42,24 @@ export default function ParticipantPage() {
   }
 
   return (
-    <div>
-      <h1>View Events</h1>
-      <EventsList
-        collectionName="events"
-        onClickAction={handleClick}
-        ActionText="Register"
-      />
+    <div className="participant-container">
+      <main className="participant-content">
+        <div className="participant-header">
+          <div className="participant-profile">
+            <h1>Public Events</h1>
+          </div>
+          <div className="participant-divider"></div>
+        </div>
+
+        <div className="participant-main">
+          <EventsList
+            collectionName="events"
+            onClickAction={handleClick}
+            ActionText="Register"
+          />
+        </div>
+      </main>
     </div>
   )
+
 }
