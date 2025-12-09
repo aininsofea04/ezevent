@@ -1,20 +1,126 @@
+<<<<<<< HEAD
+/* ------------------------------
+   GLOBAL BACKGROUND (same as sign up)
+--------------------------------*/
+=======
 body {
   background-color: var(--content-bg, #FEF6DF);
 }
+>>>>>>> d721474ff29d7c3a5ab174bbcf9f747bc3539d31
 .participant-container {
-  display: flex;
   width: 100%;
   min-height: 100vh;
+<<<<<<< HEAD
+  display: flex;
+  position: relative;
+  background: linear-gradient(to bottom, #87CEEB 0%, #E0F7FA 50%, #FFFFFF 100%);
+  padding: 20px;
+  overflow-x: hidden;
+=======
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   background-color: var(--page-bg, #FEF6DF);
   font-family: Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
   color: var(--text-color, #333);
+>>>>>>> d721474ff29d7c3a5ab174bbcf9f747bc3539d31
 }
 
+/* Circular overlay */
+.participant-container::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: rgba(144, 238, 144, 0.3);
+  border-radius: 50%;
+  top: -200px;
+  left: -200px;
+  z-index: 0;
+}
+
+/* --------------------------------
+   CONTENT AREA
+----------------------------------*/
 .participant-content {
   flex: 1;
+<<<<<<< HEAD
+  padding: 30px;
+  background: transparent;
+  min-height: 100vh;
+  margin-left: 250px;
+  position: relative;
+  z-index: 1;
+}
+
+.participant-content h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #000;
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+/* --------------------------------
+   EVENT CARDS (match Sign Up style)
+----------------------------------*/
+.events-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+.event-card {
+  background: white;
+  border-radius: 20px; /* same radius as sign-up card */
+  padding: 25px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.12); /* same soft shadow style */
+  transition: 0.25s ease-in-out;
+  position: relative;
+  z-index: 1;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 45px rgba(0,0,0,0.18);
+}
+
+/* --------------------------------
+   REGISTER BUTTON (matches auth-button)
+----------------------------------*/
+.register-btn {
+  width: 100%;
+  background: #4169E1;
+  color: white;
+  border: none;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  margin-top: 12px;
+}
+
+.register-btn:hover {
+  transform: translateY(-2px);
+  background: #3152C7;
+  box-shadow: 0 4px 12px rgba(65, 105, 225, 0.4);
+}
+
+/* Text inside cards */
+.event-card h3 {
+  color: #008B8B;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.event-card p {
+  color: #333;
+  font-size: 15px;
+  line-height: 1.5;
+=======
   padding: 2.5rem;
   overflow-y: auto;
   margin-left: 90px; /* space for the left sidebar */
@@ -55,6 +161,7 @@ body {
   margin: 0;
   color: #6b5344;
   font-weight: 600;
+>>>>>>> d721474ff29d7c3a5ab174bbcf9f747bc3539d31
 }
 
 .participant-divider {

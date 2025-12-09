@@ -1,5 +1,15 @@
 import React from "react";
 import EventsList from "../components/EventsList";
+<<<<<<< HEAD
+import { useNavigate } from "react-router-dom";
+
+export default function ViewEventPage() { 
+
+  const navigate = useNavigate();
+  const handleClick = (event) => {
+    console.log("Event clicked:", event.id);
+    navigate(`/participant/events/${event.id}`);
+=======
 import { useAuth } from "../components/AuthContext"; // ⚠️ Double check this path! earlier you said "../context/AuthContext"
 
 export default function ViewEventsPage() {
@@ -39,6 +49,7 @@ export default function ViewEventsPage() {
       console.error("Payment Error:", error);
       alert("Could not connect to payment server.");
     }
+>>>>>>> d721474ff29d7c3a5ab174bbcf9f747bc3539d31
   }
 
   return (
@@ -47,7 +58,7 @@ export default function ViewEventsPage() {
       <EventsList
         collectionName="events"
         onClickAction={handleClick}
-        ActionText="Register"
+        ActionText="View Event"
       />
     </div>
   )
