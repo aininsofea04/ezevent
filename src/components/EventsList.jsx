@@ -66,8 +66,20 @@ export default function EventsList({
                         const currentDate = new Date();
                         
                         eventsData = rawEvents.filter(event => {
-                            const eventDate = new Date(event.date); 
-                            return eventDate > currentDate; // Only show future events
+                            if (!event.date) return false; // Safety check if date is missing
+
+                            // 1. Handle Firestore Timestamp (has .toDate() method)
+                            let eventDate;
+                            if (typeof event.date.toDate === 'function') {
+                                eventDate = event.date.toDate();
+                            } 
+                            // 2. Handle String or Standard Date object
+                            else {
+                                eventDate = new Date(event.date);
+                            }
+
+                            // 3. Compare Dates
+                            return eventDate > currentDate; 
                         });
                     }
 
