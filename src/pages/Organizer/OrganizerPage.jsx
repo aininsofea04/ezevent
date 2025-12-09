@@ -2,8 +2,16 @@ import React from 'react'
 import Sidebar from '../../components/Sidebar'
 import '../../css/OrganizerPage.css'
 import EventsList from '../../components/EventsList'
+import { useNavigate } from 'react-router-dom'
 
 export default function OrganizerPage() {
+
+  const navigate = useNavigate();
+
+  const handleGoToEventDashboard = (event) => {
+    navigate(`/organizer/my-event/${event.id}/dashboard`);
+  };
+
   return (
     <div className="organizer-container">
       <Sidebar role="organizer" />
@@ -18,13 +26,9 @@ export default function OrganizerPage() {
         <div className="organizer-main">
           <EventsList
             collectionName='events'
-            onClickAction={(event) => { console.log("Event clicked:", event.id) }}
+            onClickAction={handleGoToEventDashboard}
             ActionText="View Details"
-         />
-        </div>
-
-        <div className="organizer-footer">
-          <button className="create-event-btn">Create Event</button>
+          />
         </div>
       </main>
     </div>
