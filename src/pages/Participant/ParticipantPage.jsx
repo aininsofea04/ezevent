@@ -11,7 +11,7 @@ export default function ParticipantPage() {
     try {
       console.log("Initiating payment...");
 
-      // Your deployed Function URL
+      
       const functionUrl = "https://us-central1-ezevent-b494c.cloudfunctions.net/createStripeCheckout";
 
       const response = await fetch(functionUrl, {
@@ -21,7 +21,7 @@ export default function ParticipantPage() {
         },
         body: JSON.stringify({
           eventId: event.id,
-          userId: user.uid,     // Now safe because we checked 'user' above
+          userId: user.uid,     
           userEmail: user.email
         }),
       });
@@ -46,7 +46,7 @@ export default function ParticipantPage() {
       <main className="participant-content">
         <div className="participant-header">
           <div className="participant-profile">
-            <h1>Public Events</h1>
+            <h1>Available Events</h1>
           </div>
           <div className="participant-divider"></div>
         </div>
