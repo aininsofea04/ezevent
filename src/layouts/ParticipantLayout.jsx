@@ -32,15 +32,6 @@ function ParticipantsLayout() {
           <Route path="/events/:id" element={<EventDetailsPage />} />
           <Route path="scan-attendance" element={<ScanAttendance />} />
           
-          <Route
-            path="registered"
-            element={
-              <div>
-                <h1>My Registrations</h1>
-                <p>Coming soon...</p>
-              </div>
-            }
-          />
         </Routes>
       </div>
     </div>
