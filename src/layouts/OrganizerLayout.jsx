@@ -3,7 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import OrganizerPage from "../pages/Organizer/OrganizerPage";
 import CreateEvent from "../pages/Organizer/CreateEventPage";
 import EventDashboard from "../pages/Organizer/EventDashboard";
-
+import OrganizerChatList from "../pages/Organizer/OrganizerChatList"; 
+import EventChat from "../pages/Participant/EventChat";
 function OrganizerLayout() {
   return (
     <div className="organizer-container">
@@ -15,6 +16,8 @@ function OrganizerLayout() {
           <Route path="my-events" element={<OrganizerPage />} />
           <Route path="create-event" element={<CreateEvent />} />
           <Route path="my-event/:id/dashboard" element={<EventDashboard />} />
+          <Route path="chat" element={<OrganizerChatList />} />
+          <Route path="chat/:eventId" element={<EventChat />} />
         </Routes>
       </div>
     </div>

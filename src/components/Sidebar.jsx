@@ -11,7 +11,8 @@ const menuItems = {
   participant: [
     { label: "View Events", path: "/participant/events" },
     { label: "My Event History", path: "/participant/history" },
-    { label: "Scan Attendance QR", path: "/participant/scan-attendance"}
+    { label: "Messages", path: "/participant/chat" },
+    { label: "Scan Attendance QR", path: "/participant/scan-attendance" }
   ],
   admin: [
     { label: "Management Report", path: "/admin/management-report" },
@@ -24,6 +25,7 @@ const menuItems = {
   organizer: [
     { label: "My Events", path: "/organizer/my-events" },
     { label: "Create Event", path: "/organizer/create-event" },
+    { label: "Messages", path: "/organizer/chat" },
   ]
 };
 
